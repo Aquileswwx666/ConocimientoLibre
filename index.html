@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conocimiento Libre - Cuentas Premium</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+            background-image: url('https://i.imgur.com/JQJQJQJ.png'); /* Imagen de fondo con logos */
+            background-attachment: fixed;
+            background-size: 300px;
+            background-opacity: 0.1;
+        }
+        
+        header {
+            background-color: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav {
+            background-color: rgba(52, 73, 94, 0.9);
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #1abc9c;
+            color: white;
+        }
+        
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .welcome-message {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .form-container {
+            display: none;
+            padding: 30px;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        input[type="text"], 
+        input[type="password"], 
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
+        
+        button, .btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        button:hover, .btn:hover {
+            background-color: #16a085;
+        }
+        
+        .captcha-container {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .captcha-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .change-captcha {
+            background-color: #3498db;
+            width: auto;
+            display: inline-block;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        .change-captcha:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            backdrop-filter: blur(5px);
+        }
+        
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .video-card {
+            width: 48%;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 15px;
+        }
+        
+        .bin-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .bin-item {
+            background: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        .whatsapp-group {
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .whatsapp-group a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conocimiento Libre</h1>
+        <p>El conocimiento es poder cuando se comparte</p>
+    </header>
+    
+    <nav>
+        <a href="#" class="tablink" onclick="openTab('inicio')">Inicio</a>
+        <a href="#" class="tablink" onclick="openTab('registro')">Registro</a>
+        <a href="#" class="tablink" onclick="openTab('login')">Inicio de Sesión</a>
+        <a href="#" class="tablink" onclick="openTab('tutoriales')">Video Tutoriales</a>
+        <a href="#" class="tablink" onclick="openTab('bins')">BINs Actualizados</a>
+        <a href="#" class="tablink" onclick="openTab('whatsapp')">Grupo WhatsApp</a>
+    </nav>
+    
+    <div class="container">
+        <!-- Pestaña de Inicio -->
+        <div id="inicio" class="form-container active">
+            <div class="welcome-message">
+                <h2>Bienvenido a Conocimiento Libre</h2>
+                <p>Somos una comunidad dedicada a la enseñanza sobre creación de cuentas premium en diferentes plataformas de streaming y servicios digitales.</p>
+                <p><strong>Sin ánimo de lucro</strong>, creemos firmemente que el conocimiento debe ser libre y accesible para todos.</p>
+                <p>En un mundo donde la información es poder, limitar el acceso al conocimiento es limitar el desarrollo humano.</p>
+                <p>¡Explora nuestras secciones y únete a nuestra comunidad!</p>
+            </div>
+        </div>
+        
+        <!-- Pestaña de Registro -->
+        <div id="registro" class="form-container">
+            <h2>Registro de Cuenta</h2>
+            <form id="registerForm">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="usuario">Nombre de usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+                
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+                
+                <label for="confirmar">Confirmar contraseña</label>
+                <input type="password" id="confirmar" name="confirmar" required>
+                
+                <div class="captcha-container">
+                    <p>Por favor, resuelve el siguiente CAPTCHA:</p>
+                    <div class="captcha-question" id="captcha-question"></div>
+                    <input type="number" id="captcha-answer" placeholder="Ingresa tu respuesta" required>
+                    <button type="button" class="change-captcha" onclick="generateCaptcha()">Cambiar CAPTCHA</button>
+                </div>
+                
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        
+        <!-- Pestaña de Inicio de Sesión -->
+        <div id="login" class="form-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="login-usuario">Nombre de usuario o email</label>
+                <input type="text" id="login-usuario" name="login-usuario" required>
+                
+                <label for="login-contrasena">Contraseña</label>
+                <input type="password" id="login-contrasena" name="login-contrasena" required>
+                
+                <div class="captcha-container">
+                    <p>Por favor, resuelve el siguiente CAPTCHA:</p>
+                    <div class="captcha-question" id="login-captcha-question"></div>
+                    <input type="number" id="login-captcha-answer" placeholder="Ingresa tu respuesta" required>
+                    <button type="button" class="change-captcha" onclick="generateLoginCaptcha()">Cambiar CAPTCHA</button>
+                </div>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        
+        <!-- Pestaña de Video Tutoriales -->
+        <div id="tutoriales" class="form-container">
+            <h2>Video Tutoriales</h2>
+            <p>Aprende con nuestros tutoriales paso a paso:</p>
+            
+            <div class="video-container">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h3>Tutorial Netflix Premium</h3>
+                        <p>Aprende a crear cuentas premium en Netflix</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h3>Tutorial Spotify Premium</h3>
+                        <p>Guía completa para cuentas Spotify</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h3>Tutorial Prime Video</h3>
+                        <p>Método actualizado para Prime</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h3>Tutorial Crunchyroll</h3>
+                        <p>Acceso premium a anime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pestaña de BINs Actualizados -->
+        <div id="bins" class="form-container">
+            <h2>BINs Actualizados</h2>
+            <p>Lista de BINs funcionales para diferentes plataformas:</p>
+            
+            <h3>Netflix</h3>
+            <ul class="bin-list">
+                <li class="bin-item">51546200XXXXXX</li>
+                <li class="bin-item">51780500XXXXXX</li>
+                <li class="bin-item">52431600XXXXXX</li>
+            </ul>
+            
+            <h3>Spotify</h3>
+            <ul class="bin-list">
+                <li class="bin-item">45396800XXXXXX</li>
+                <li class="bin-item">49184400XXXXXX</li>
+                <li class="bin-item">40240000XXXXXX</li>
+            </ul>
+            
+            <h3>Prime Video</h3>
+            <ul class="bin-list">
+                <li class="bin-item">54241800XXXXXX</li>
+                <li class="bin-item">51780500XXXXXX</li>
+            </ul>
+            
+            <h3>HBO Max</h3>
+            <ul class="bin-list">
+                <li class="bin-item">51780500XXXXXX</li>
+                <li class="bin-item">52431600XXXXXX</li>
+            </ul>
+            
+            <p class="note">Nota: Los BINs se actualizan semanalmente. Únete a nuestro grupo de WhatsApp para recibir actualizaciones.</p>
+        </div>
+        
+        <!-- Pestaña de Grupo WhatsApp -->
+        <div id="whatsapp" class="form-container">
+            <h2>Únete a Nuestra Comunidad</h2>
+            <p>Forma parte de nuestro grupo exclusivo de WhatsApp donde compartimos:</p>
+            <ul>
+                <li>Nuevos métodos actualizados</li>
+                <li>BINs verificados</li>
+                <li>Soporte directo</li>
+                <li>Tutoriales exclusivos</li>
+                <li>Comunidad activa</li>
+            </ul>
+            
+            <div class="whatsapp-group">
+                <p>Haz clic en el siguiente enlace para unirte:</p>
+                <a href="https://wa.me/1234567890" target="_blank">Grupo WhatsApp Conocimiento Libre</a>
+            </div>
+            
+            <p>Reglas del grupo:</p>
+            <ol>
+                <li>No spam</li>
+                <li>Respeto a todos los miembros</li>
+                <li>Compartir conocimiento útil</li>
+                <li>No vender servicios dentro del grupo</li>
+            </ol>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Conocimiento Libre. El conocimiento debe ser libre y accesible para todos.</p>
+    </footer>
+    
+    <script>
+        // Función para cambiar entre pestañas
+        function openTab(tabName) {
+            var tabs = document.getElementsByClassName("form-container");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+        }
+        
+        // Variables para el CAPTCHA
+        var num1, num2, answer;
+        var loginNum1, loginNum2, loginAnswer;
+        
+        // Generar CAPTCHA para registro
+        function generateCaptcha() {
+            num1 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1;
+            answer = num1 + num2;
+            document.getElementById("captcha-question").textContent = `${num1} + ${num2} = ?`;
+            document.getElementById("captcha-answer").value = "";
+        }
+        
+        // Generar CAPTCHA para login
+        function generateLoginCaptcha() {
+            loginNum1 = Math.floor(Math.random() * 10) + 1;
+            loginNum2 = Math.floor(Math.random() * 10) + 1;
+            loginAnswer = loginNum1 + loginNum2;
+            document.getElementById("login-captcha-question").textContent = `${loginNum1} + ${loginNum2} = ?`;
+            document.getElementById("login-captcha-answer").value = "";
+        }
+        
+        // Validar formulario de registro
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            var userAnswer = parseInt(document.getElementById("captcha-answer").value);
+            
+            if (userAnswer !== answer) {
+                alert("Respuesta incorrecta. Por favor intenta nuevamente.");
+                generateCaptcha();
+                return;
+            }
+            
+            if (document.getElementById("contrasena").value !== document.getElementById("confirmar").value) {
+                alert("Las contraseñas no coinciden.");
+                return;
+            }
+            
+            alert("Registro exitoso. Bienvenido a Conocimiento Libre!");
+            this.reset();
+            generateCaptcha();
+        });
+        
+        // Validar formulario de login
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            var userAnswer = parseInt(document.getElementById("login-captcha-answer").value);
+            
+            if (userAnswer !== loginAnswer) {
+                alert("Respuesta incorrecta. Por favor intenta nuevamente.");
+                generateLoginCaptcha();
+                return;
+            }
+            
+            alert("Inicio de sesión exitoso. Bienvenido de vuelta!");
+            this.reset();
+            generateLoginCaptcha();
+        });
+        
+        // Generar CAPTCHAs al cargar la página
+        window.onload = function() {
+            generateCaptcha();
+            generateLoginCaptcha();
+        };
+    </script>
+</body>
+</html>
