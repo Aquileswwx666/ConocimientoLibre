@@ -1,0 +1,1 @@
+hola a todos los invito a modificar este repositorio pueden cambiar lo que deseen para que la pagina de conocimiento lobre se vea mejor poner imagen de fondo nuevas pestañas agregar videos tutoriales nuevos bin para distintas plataformas en fin el limite esta en ustedes
